@@ -1,3 +1,23 @@
+# Vektorske reprezentacije teksta (Embeddings)
+
+Za pretvaranje tekstualnih podataka u numericke vektore mozemo koristiti razlicite pretrenirane modele:
+
+- **`all-MiniLM-L12-v2` (SentenceTransformers / SBERT)** – koristi se za kreiranje vektorskih reprezentacija celih recenica i dokumenata (*sentence embeddings*). Dobijeni vektori imaju 384 dimenzije i mogu se koristiti za racunanje semanticke slicnosti, grupisanje dokumenata (*clustering*) i semanticku pretragu.
+
+- **`en_core_web_md` (spaCy)** – pretrenirani engleski jezik model koji sadrzi vektorske reprezentacije pojedinacnih reci (*word embeddings*). Na osnovu njih moze da formira i vektorsku reprezentaciju celog dokumenta.
+
+## Tokenizacija
+
+**Tokenizer** je komponenta koja deli tekst na manje jedinice (tokene) kako bi mogao da se obradi.
+
+- **SBERT** koristi WordPiece tokenizer, koji moze da podeli jednu rec na vise tokena.
+- **spaCy** koristi sopstveni tokenizer za podelu teksta na tokene.
+- Moguce je napraviti i sopstvenu funkciju za tokenizaciju, u zavisnosti od potreba zadatka (*koristi model `en_core_web_sm)`).
+
+**Vazno:** Tokenizacija i kreiranje embeddings nisu isto. Tokenizer deli tekst na tokene, dok embedding model pretvara tekst ili reci u numericke vektore.
+
+---
+
 # Podesavanje hiperparametara u klasifikaciji teksta
 
 ## 1. CountVectorizer i TfidfVectorizer
